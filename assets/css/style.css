@@ -40,3 +40,10 @@ body{font-family:Helvetica,"Helvetica Neue",Arial,sans-serif}
  .image-viewer{padding:50px 10px 20px}
  .viewer-close{right:18px;top:16px}
 }
+
+/* Gentle, quick fade when opening enlarged images */
+.image-viewer[open]{animation:portfolio-image-in .18s ease-out both}
+.image-viewer[open]::backdrop{animation:portfolio-backdrop-in .18s ease-out both}
+@keyframes portfolio-image-in{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+@keyframes portfolio-backdrop-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.image-viewer[open],.image-viewer[open]::backdrop{animation:none}}
