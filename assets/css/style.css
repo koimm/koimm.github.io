@@ -60,3 +60,8 @@ body{font-family:Helvetica,"Helvetica Neue",Arial,sans-serif}
 @media (prefers-reduced-motion:reduce) {
   .image-viewer,.image-viewer::backdrop { transition:none; }
 }
+
+/* Set image_fit: original or image_fit: crop per project. */
+.work-card.image-original .work-image{aspect-ratio:auto;background:transparent}
+.work-card.image-original .work-image img{width:100%;height:auto;object-fit:contain}
+.work-card.image-crop .work-image img{object-fit:cover}
