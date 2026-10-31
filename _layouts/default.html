@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}">koim.</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" onclick="const nav=document.getElementById('site-nav');const visible=nav.classList.toggle('open');this.setAttribute('aria-expanded',visible)">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="site-nav" class="nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/works/' | relative_url }}">Works</a>
+      <span class="nav-group">Gallery
+        <a href="{{ '/gallery/independent/' | relative_url }}">Independent Works</a>
+        <a href="{{ '/gallery/projects/' | relative_url }}">Projects</a>
+      </span>
+      <a href="{{ '/about/' | relative_url }}">About &amp; Contact</a>
+    </nav>
+  </header>
+  <main id="main-content" class="content">{{ content }}</main>
+  <footer class="footer"><span>© {{ 'now' | date: '%Y' }} koim.</span><a href="{{ '/' | relative_url }}">Back to top ↑</a></footer>
+</body>
+</html>
