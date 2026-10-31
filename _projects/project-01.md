@@ -7,6 +7,7 @@ order: 1
 featured: true
 year: 2026
 cover: ""
+image_fit: crop
 images: []
 ---
 Write your project description here. To add a cover image, upload it to an `images` folder and set `cover: "/images/filename.jpg"` above.
