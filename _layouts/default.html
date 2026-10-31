@@ -24,7 +24,7 @@
   <main id="main-content" class="content">{{ content }}</main>
   <footer class="footer"><span>© {{ 'now' | date: '%Y' }} koim.</span><a href="{{ '/' | relative_url }}">Back to top ↑</a></footer>
   <dialog id="image-viewer" class="image-viewer" aria-label="Enlarged artwork">
-    <button type="button" class="viewer-close" aria-label="Close image" onclick="document.getElementById('image-viewer').close()">✕</button>
+    <button type="button" class="viewer-close" aria-label="Close image" onclick="closePortfolioImage()">✕</button>
     <img id="viewer-image" alt="">
     <div id="viewer-placeholder" class="placeholder-art" hidden></div>
     <p id="viewer-caption"></p>
@@ -41,10 +41,30 @@
       if (src) { img.src = src; img.alt = title; }
       else { img.removeAttribute('src'); placeholder.textContent = title; }
       document.getElementById('viewer-caption').textContent = title;
+      dialog.classList.remove('is-closing');
       dialog.showModal();
     }
-    document.getElementById('image-viewer').addEventListener('click', function(e) {
-      if (e.target === this) this.close();
+    const portfolioViewer = document.getElementById('image-viewer');
+    let portfolioCloseTimer;
+    function closePortfolioImage() {
+      if (!portfolioViewer.open || portfolioViewer.classList.contains('is-closing')) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        portfolioViewer.close();
+        return;
+      }
+      portfolioViewer.classList.add('is-closing');
+      clearTimeout(portfolioCloseTimer);
+      portfolioCloseTimer = setTimeout(() => {
+        portfolioViewer.close();
+        portfolioViewer.classList.remove('is-closing');
+      }, 180);
+    }
+    portfolioViewer.addEventListener('click', function(e) {
+      if (e.target === this) closePortfolioImage();
+    });
+    portfolioViewer.addEventListener('cancel', function(e) {
+      e.preventDefault();
+      closePortfolioImage();
     });
   </script>
 </body>
