@@ -1,0 +1,12 @@
+---
+layout: default
+title: Independent Works
+permalink: /gallery/independent/
+---
+<h1 class="page-title">Independent Works</h1>
+<div class="work-grid">
+{% assign projects = site.projects | sort: 'order' %}
+{% for item in projects %}
+{% if item.group == 'independent' %}{% include card.html item=item %}{% endif %}
+{% endfor %}
+</div>
