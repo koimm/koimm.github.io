@@ -1,22 +1,31 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>koim.io</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #111;
-      margin: 60px;
-    }
-  </style>
-</head>
-<body>
-  <h1>koim.</h1>
-  <p>Portfolio coming soon.</p>
-</body>
-</html>
-    
+---
+layout: default
+title: Home
+---
+<section class="intro">
+  <div class="eyebrow">Portfolio / Selected Works</div>
+  <h1>A collection of creative work, projects, and experiments.</h1>
+</section>
+<section>
+  <div class="section-heading">
+    <h2>Selected Works</h2>
+    <a href="{{ '/works/' | relative_url }}">View all works →</a>
+  </div>
+  <div class="work-grid">
+  {% assign projects = site.projects | sort: 'order' %}
+  {% for item in projects %}
+    {% if item.featured %}{% include card.html item=item %}{% endif %}
+  {% endfor %}
+  </div>
+</section>
+<section>
+  <div class="section-heading">
+    <h2>Independent Works</h2>
+    <a href="{{ '/gallery/independent/' | relative_url }}">View gallery →</a>
+  </div>
+  <div class="work-grid">
+  {% for item in projects %}
+    {% if item.group == 'independent' %}{% include card.html item=item %}{% endif %}
+  {% endfor %}
+  </div>
+</section>
