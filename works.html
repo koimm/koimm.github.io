@@ -1,0 +1,13 @@
+---
+layout: default
+title: Works
+permalink: /works/
+---
+<h1 class="page-title">Works / Selected Projects</h1>
+<p class="page-note">Browse selected projects and independent works.</p>
+<div class="work-grid">
+{% assign projects = site.projects | sort: 'order' %}
+{% for item in projects %}
+{% include card.html item=item %}
+{% endfor %}
+</div>
