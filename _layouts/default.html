@@ -16,12 +16,36 @@
       <a href="{{ '/works/' | relative_url }}">Works</a>
       <div class="nav-group"><span>Gallery</span>
         <a href="{{ '/gallery/independent/' | relative_url }}">Independent Works</a>
-        <a href="{{ '/gallery/projects/' | relative_url }}">Projects</a>
+        <a href="{{ '/gallery/projects/' | relative_url }}">Architectural Works</a>
       </div>
       <a href="{{ '/about/' | relative_url }}">About &amp; Contact</a>
     </nav>
   </header>
   <main id="main-content" class="content">{{ content }}</main>
   <footer class="footer"><span>© {{ 'now' | date: '%Y' }} koim.</span><a href="{{ '/' | relative_url }}">Back to top ↑</a></footer>
+  <dialog id="image-viewer" class="image-viewer" aria-label="Enlarged artwork">
+    <button type="button" class="viewer-close" aria-label="Close image" onclick="document.getElementById('image-viewer').close()">✕</button>
+    <img id="viewer-image" alt="">
+    <div id="viewer-placeholder" class="placeholder-art" hidden></div>
+    <p id="viewer-caption"></p>
+  </dialog>
+  <script>
+    function openPortfolioImage(button) {
+      const dialog = document.getElementById('image-viewer');
+      const img = document.getElementById('viewer-image');
+      const placeholder = document.getElementById('viewer-placeholder');
+      const title = button.dataset.title || 'Artwork';
+      const src = button.dataset.image;
+      img.hidden = !src;
+      placeholder.hidden = !!src;
+      if (src) { img.src = src; img.alt = title; }
+      else { img.removeAttribute('src'); placeholder.textContent = title; }
+      document.getElementById('viewer-caption').textContent = title;
+      dialog.showModal();
+    }
+    document.getElementById('image-viewer').addEventListener('click', function(e) {
+      if (e.target === this) this.close();
+    });
+  </script>
 </body>
 </html>
