@@ -1,1 +1,42 @@
 :root{--ink:#171717;--muted:#767676;--line:#e5e5e5;--bg:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65}a{color:inherit;text-decoration:none}a:hover{opacity:.62}img{display:block;max-width:100%}.site-header{padding:32px 5.6%;display:flex;align-items:flex-start;justify-content:space-between;gap:30px}.brand{font-size:37px;line-height:1;font-weight:700;letter-spacing:-2px}.nav{display:flex;gap:26px;align-items:flex-start;font-size:12px}.nav>a,.nav-group{padding:7px 0}.nav-group{display:flex;flex-direction:column;gap:8px}.nav-group>a{color:#777;font-size:11px}.nav-group>span{color:var(--ink)}.menu-toggle{display:none;border:0;background:none;font:inherit}.content{margin:30px auto 100px;padding:0 5.6%;max-width:1740px}.home-opening{min-height:100px;display:flex;align-items:start;padding-top:20px}.home-opening p{font-size:14px;margin:0}.home-section{margin-bottom:90px}.home-intro{padding:30px 0 35px;display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.home-intro>div{max-width:690px}.home-intro h2{font-size:20px;margin:0 0 12px;font-weight:500}.home-intro p{font-size:13px;line-height:1.85;margin:0 0 22px}.section-index{color:var(--muted);font-size:11px}.feature-link{font-size:24px;font-weight:400;letter-spacing:-.035em;display:inline-block;margin-bottom:8px}.small-heading{font-size:11px;color:var(--muted);margin:2px 0 15px}.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:45px 22px;margin-bottom:100px}.work-image{aspect-ratio:4/3;background:#eee;overflow:hidden}.work-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.work-card:hover img{transform:scale(1.025)}.placeholder-art{width:100%;height:100%;min-height:230px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#898989;background:linear-gradient(135deg,#f4f4f4,#e8e8e8);font-size:13px}.work-caption{padding-top:13px}.work-caption h3{font-size:15px;font-weight:500;line-height:1.35;margin:6px 0}.work-caption p{margin:0;color:#777;font-size:12px}.eyebrow{font-size:11px;color:var(--muted);letter-spacing:.04em}.read-more{display:inline-block;margin-top:10px;font-size:11px}.page-title{font-size:clamp(30px,4vw,55px);font-weight:400;line-height:1.1;letter-spacing:-.05em;margin:30px 0 45px}.page-note{max-width:680px;margin-bottom:50px;color:var(--muted)}.project-page{max-width:1120px;margin:auto}.back-link{font-size:12px}.project-heading{margin:50px 0 35px}.project-heading h1{font-size:clamp(30px,5vw,65px);font-weight:400;letter-spacing:-.05em;line-height:1.1;margin:12px 0}.project-subtitle{font-size:14px;color:var(--muted)}.project-hero{aspect-ratio:16/10;background:#eee}.project-hero img{height:100%;width:100%;object-fit:contain}.project-description{max-width:710px;margin:60px auto;font-size:15px;line-height:1.8}.project-images{display:grid;gap:25px}.project-images img{width:100%}.about-copy{max-width:760px;font-size:16px;line-height:1.9}.footer{border-top:1px solid var(--line);padding:26px 5.6%;display:flex;justify-content:space-between;color:var(--muted);font-size:11px}@media(max-width:850px){.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-header{flex-wrap:wrap}.nav{gap:14px;flex-wrap:wrap}}@media(max-width:560px){.site-header{padding:22px 6%}.brand{font-size:32px}.menu-toggle{display:block}.nav{display:none;width:100%;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}.nav.open{display:flex}.content{padding:0 6%;margin-top:25px}.home-opening{min-height:75px}.home-intro{padding-top:20px}.feature-link{font-size:20px}.work-grid{grid-template-columns:1fr;gap:37px;margin-bottom:70px}.home-section{margin-bottom:50px}.project-description{margin:35px auto}.footer{padding:24px 6%}}
+
+/* October refinements: Helvetica, left-aligned sidebar and image lightbox */
+body{font-family:Helvetica,"Helvetica Neue",Arial,sans-serif}
+.site-header{position:fixed;top:0;left:0;bottom:0;width:240px;padding:42px 28px 25px 42px;display:flex;flex-direction:column;justify-content:flex-start;gap:62px;overflow-y:auto;background:#fff;z-index:5}
+.brand{font-size:33px;letter-spacing:-1.5px}
+.nav{display:flex;flex-direction:column;align-items:flex-start;gap:17px;font-size:13px}
+.nav>a,.nav-group{padding:0}
+.nav-group{gap:11px}
+.nav-group>a{padding-left:13px}
+.content{max-width:none;margin:0 0 100px 240px;padding:40px 5.2% 0 4.8%}
+.footer{margin-left:240px;padding:26px 5.2% 26px 4.8%}
+.page-title{font-size:clamp(18px,2vw,25px);font-weight:400;letter-spacing:-.02em;margin:16px 0 38px}
+.page-note{display:none}
+.work-card{border:0;background:transparent;color:inherit;text-align:left;padding:0;font:inherit;width:100%;cursor:zoom-in}
+.work-card:hover{opacity:1}
+.work-card:hover .work-image img{transform:scale(1.065)}
+.work-card:focus-visible{outline:2px solid #333;outline-offset:5px}
+.image-viewer{background:transparent;border:0;outline:0;padding:50px 24px 26px;max-width:min(95vw,1250px);max-height:94vh;color:#fff;overflow:auto}
+.image-viewer::backdrop{background:rgba(0,0,0,.86)}
+.image-viewer img{max-height:76vh;max-width:100%;width:auto;margin:auto;object-fit:contain}
+.image-viewer .placeholder-art{min-width:min(75vw,700px);min-height:45vh}
+.image-viewer p{text-align:center;font-size:13px;margin:14px 0 0}
+.viewer-close{position:fixed;right:32px;top:22px;background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+.image-viewer [hidden]{display:none!important}
+@media(max-width:850px){
+ .site-header{width:190px;padding:30px 20px;gap:40px}
+ .nav{flex-direction:column;align-items:flex-start;gap:15px}
+ .content{margin-left:190px;padding-left:4%;padding-right:4%}
+ .footer{margin-left:190px}
+}
+@media(max-width:560px){
+ .site-header{position:relative;width:auto;padding:22px 6%;gap:12px;flex-direction:row;align-items:center;justify-content:space-between;overflow:visible}
+ .menu-toggle{display:block}
+ .nav{display:none;position:absolute;top:100%;left:0;right:0;width:100%;background:#fff;padding:18px 6% 25px;z-index:10;border-bottom:1px solid var(--line)}
+ .nav.open{display:flex}
+ .content{margin:10px 0 65px;padding:0 6%}
+ .footer{margin-left:0;padding:24px 6%}
+ .page-title{font-size:21px;margin:22px 0 30px}
+ .image-viewer{padding:50px 10px 20px}
+ .viewer-close{right:18px;top:16px}
+}
