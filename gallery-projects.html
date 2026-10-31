@@ -1,0 +1,12 @@
+---
+layout: default
+title: Projects
+permalink: /gallery/projects/
+---
+<h1 class="page-title">Projects</h1>
+<div class="work-grid">
+{% assign projects = site.projects | sort: 'order' %}
+{% for item in projects %}
+{% if item.group == 'projects' %}{% include card.html item=item %}{% endif %}
+{% endfor %}
+</div>
