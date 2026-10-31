@@ -2,30 +2,39 @@
 layout: default
 title: Home
 ---
-<section class="intro">
-  <div class="eyebrow">Portfolio / Selected Works</div>
-  <h1>A collection of creative work, projects, and experiments.</h1>
+<section class="home-opening">
+  <p>Architecture, art, and digital environments</p>
 </section>
-<section>
-  <div class="section-heading">
-    <h2>Selected Works</h2>
-    <a href="{{ '/works/' | relative_url }}">View all works →</a>
+<section class="home-section">
+  <div class="home-intro">
+    <div>
+      <h2>Projects</h2>
+      <p>A selection of projects across architecture, design, and digital environments. This section will feature your work and project documentation.</p>
+      <a class="feature-link" href="{{ '/gallery/projects/' | relative_url }}">→ Projects / Works</a>
+    </div>
+    <span class="section-index">01 / Selected</span>
   </div>
+  <p class="small-heading">Featured</p>
   <div class="work-grid">
-  {% assign projects = site.projects | sort: 'order' %}
-  {% for item in projects %}
-    {% if item.featured %}{% include card.html item=item %}{% endif %}
-  {% endfor %}
+    {% assign projects = site.projects | sort: 'order' %}
+    {% for item in projects %}
+      {% if item.group == 'projects' %}{% include card.html item=item %}{% endif %}
+    {% endfor %}
   </div>
 </section>
-<section>
-  <div class="section-heading">
-    <h2>Independent Works</h2>
-    <a href="{{ '/gallery/independent/' | relative_url }}">View gallery →</a>
+<section class="home-section">
+  <div class="home-intro">
+    <div>
+      <h2>Independent Works</h2>
+      <p>A collection of personal experiments, artwork, and creative projects made outside of structured assignments.</p>
+      <a class="feature-link" href="{{ '/gallery/independent/' | relative_url }}">→ Independent Works</a>
+    </div>
+    <span class="section-index">02 / Selected</span>
   </div>
+  <p class="small-heading">Featured</p>
   <div class="work-grid">
-  {% for item in projects %}
-    {% if item.group == 'independent' %}{% include card.html item=item %}{% endif %}
-  {% endfor %}
+    {% for item in projects %}
+      {% if item.group == 'independent' %}{% include card.html item=item %}{% endif %}
+    {% endfor %}
   </div>
 </section>
