@@ -1,12 +1,11 @@
-<a class="work-card" href="{{ include.item.url | relative_url }}">
+<button type="button" class="work-card" data-title="{{ include.item.title | escape }}" data-image="{% if include.item.cover %}{{ include.item.cover | relative_url }}{% endif %}" onclick="openPortfolioImage(this)" aria-label="Enlarge {{ include.item.title | escape }}">
   <div class="work-image">
-    {% if include.item.cover %}<img src="{{ include.item.cover | relative_url }}" alt="{{ include.item.title }}" loading="lazy">
+    {% if include.item.cover %}<img src="{{ include.item.cover | relative_url }}" alt="{{ include.item.title | escape }}" loading="lazy">
     {% else %}<div class="placeholder-art">{{ include.item.title }}</div>{% endif %}
   </div>
   <div class="work-caption">
     <div class="eyebrow">{{ include.item.category }}</div>
     <h3>{{ include.item.title }}</h3>
     <p>{{ include.item.subtitle }}</p>
-    <span class="read-more">Read more →</span>
   </div>
-</a>
+</button>
