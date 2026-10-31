@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="project-page">
+  <a class="back-link" href="{{ '/works/' | relative_url }}">← All works</a>
+  <header class="project-heading">
+    <div class="eyebrow">{{ page.category }}{% if page.year %} / {{ page.year }}{% endif %}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="project-subtitle">{{ page.subtitle }}</p>{% endif %}
+  </header>
+  <div class="project-hero">
+    {% if page.cover %}<img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" loading="eager">
+    {% else %}<div class="placeholder-art">Add your cover image here</div>{% endif %}
+  </div>
+  <div class="project-description">{{ content }}</div>
+  {% if page.images %}
+  <div class="project-images">
+    {% for img in page.images %}<img src="{{ img | relative_url }}" alt="{{ page.title }} — image {{ forloop.index }}" loading="lazy">{% endfor %}
+  </div>
+  {% endif %}
+</article>
