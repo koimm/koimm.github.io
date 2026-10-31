@@ -41,26 +41,28 @@
       if (src) { img.src = src; img.alt = title; }
       else { img.removeAttribute('src'); placeholder.textContent = title; }
       document.getElementById('viewer-caption').textContent = title;
-      dialog.classList.remove('is-closing');
+      clearTimeout(portfolioCloseTimer);
+      dialog.classList.remove('is-visible');
       dialog.showModal();
+      requestAnimationFrame(() => requestAnimationFrame(() => dialog.classList.add('is-visible')));
     }
     const portfolioViewer = document.getElementById('image-viewer');
     let portfolioCloseTimer;
     function closePortfolioImage() {
-      if (!portfolioViewer.open || portfolioViewer.classList.contains('is-closing')) return;
+      if (!portfolioViewer.open || !portfolioViewer.classList.contains('is-visible')) return;
+      portfolioViewer.classList.remove('is-visible');
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         portfolioViewer.close();
         return;
       }
-      portfolioViewer.classList.add('is-closing');
       clearTimeout(portfolioCloseTimer);
-      portfolioCloseTimer = setTimeout(() => {
-        portfolioViewer.close();
-        portfolioViewer.classList.remove('is-closing');
-      }, 180);
+      portfolioCloseTimer = setTimeout(() => portfolioViewer.close(), 210);
     }
     portfolioViewer.addEventListener('click', function(e) {
-      if (e.target === this) closePortfolioImage();
+      if (e.target !== this) return;
+      const bounds = this.getBoundingClientRect();
+      if (e.clientX < bounds.left || e.clientX > bounds.right ||
+          e.clientY < bounds.top || e.clientY > bounds.bottom) closePortfolioImage();
     });
     portfolioViewer.addEventListener('cancel', function(e) {
       e.preventDefault();
