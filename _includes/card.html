@@ -1,4 +1,4 @@
-<button type="button" class="work-card" data-title="{{ include.item.title | escape }}" data-image="{% if include.item.cover %}{{ include.item.cover | relative_url }}{% endif %}" onclick="openPortfolioImage(this)" aria-label="Enlarge {{ include.item.title | escape }}">
+<button type="button" class="work-card {% if include.item.image_fit == 'original' %}image-original{% else %}image-crop{% endif %}" data-title="{{ include.item.title | escape }}" data-image="{% if include.item.cover %}{{ include.item.cover | relative_url }}{% endif %}" onclick="openPortfolioImage(this)" aria-label="Enlarge {{ include.item.title | escape }}">
   <div class="work-image">
     {% if include.item.cover %}<img src="{{ include.item.cover | relative_url }}" alt="{{ include.item.title | escape }}" loading="lazy">
     {% else %}<div class="placeholder-art">{{ include.item.title }}</div>{% endif %}
