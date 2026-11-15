@@ -6,7 +6,8 @@ group: independent
 order: 3
 featured: true
 year: 2026
-cover: ""
+cover: "/images/IMG_2891.JPEG"
+image_fit: original
 images: []
 ---
 Replace this with your description.
